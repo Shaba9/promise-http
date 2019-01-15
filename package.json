@@ -1,0 +1,35 @@
+{
+  "name": "promise-http",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "dependencies": {
+    "superagent": "^4.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.12.0",
+    "jest": "^23.6.0",
+    "nodemon": "^1.18.9"
+  },
+  "scripts": {
+    "pretest": "npm run lint",
+    "test": "jest",
+    "lint": "eslint .",
+    "start": "nodemon http.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shaba9/promise-http.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shaba9/promise-http/issues"
+  },
+  "homepage": "https://github.com/Shaba9/promise-http#readme"
+}
