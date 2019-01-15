@@ -6,7 +6,7 @@ describe('app', () => {
     return request(app)
       .get('/tester')
       .then(res => {
-        expect(res.text).toEqual('testing123');
+        expect(res.body).toEqual({ testing: 123 });
       });
   });
 });
