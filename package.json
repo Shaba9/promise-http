@@ -8,7 +8,8 @@
     "test": "test"
   },
   "dependencies": {
-    "superagent": "^4.1.0"
+    "superagent": "^4.1.0",
+    "supertest": "^3.3.0"
   },
   "devDependencies": {
     "eslint": "^5.12.0",
