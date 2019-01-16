@@ -10,4 +10,13 @@ describe('app', () => {
         expect(res.body).toEqual({ hi: 'there shaba' });
       });
   });
+
+  // it('posts at /note', () => {
+  //   return request(app)
+  //     .post('/note')
+  //     .send({})
+  //     .then(res => {
+  //       expect(res.body).toEqual({ text: 'this is a note' });
+  //     });
+  // });
 });
