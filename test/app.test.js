@@ -5,8 +5,9 @@ describe('app', () => {
   it('has a tester route', () => {
     return request(app)
       .get('/tester')
+      .query({ name: 'shaba' })
       .then(res => {
-        expect(res.body).toEqual({ testing: 123 });
+        expect(res.body).toEqual({ hi: 'there shaba' });
       });
   });
 });
