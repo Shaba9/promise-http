@@ -1,13 +1,13 @@
 const request = require('superagent');
+// const reqtest = require('supertest');
+// const app = ('./rick-mort');
 
 let characters = {};
 
 const getCharacters = () => {
-  console.log('characters api called');
   return request
     .get('https://rickandmortyapi.com/api/character/')
     .then(resp => {
-      console.log('response api', resp);
       let names = '<ul>';
       resp.body.results.forEach(character => {
         names += `<li>${character.name}</li>`;
@@ -29,10 +29,10 @@ const postCharacter = character => {
   // request
   //   .post('http://localhost:7890/characters')
   //   .then(() => {
-      console.log('api posted');
-      characters[character.charId] = [character.note];
-      return characters;
-    // });
+  console.log('api posted', character);
+  // characters[character.charId] = [character.note];
+  return characters;
+  // });
 };
 
 module.exports = {
@@ -41,8 +41,10 @@ module.exports = {
   postCharacter
 };
 
-// request
-//   .get('http://localhost:7890/characters')
-//   // .send({ charId: 1234, note: 'My favorite character' })
-//   .then(res => console.log('request done', res));
+request
+  .post('http://localhost:7890/characters')
+  .send({ charId: 1234, note: 'My favorite character' })
+  // .set('X-API-Key', 'foobar')
+  // .set('Accept', 'application/json')
+  .then(res => console.log('request done', res));
 

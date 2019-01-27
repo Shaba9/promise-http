@@ -9,6 +9,13 @@ module.exports = (req, res) => {
   console.log('RICK-MORT REQUEST INCOMING!');
   const url = parse(req.url, true);
   const pathname = url.pathname;
+  let data = '';
+
+  req.on('data', chunk => {
+    data += chunk;
+  });
+
+  req.on('end', () => console.log('data', data));
 
   res.setHeader('Content-Type', 'text/html');
   res.write(`
@@ -23,7 +30,6 @@ module.exports = (req, res) => {
     res.end('go to a route');
   } 
   else if(req.method === 'GET' && pathname === '/characters') {
-    console.log('characters called');
     res.statusCode = 200;
     getCharacters()
       .then(names => {
@@ -31,10 +37,9 @@ module.exports = (req, res) => {
       });
   }
   else if(req.method === 'POST' && pathname === '/characters') {
-    console.log('post', req);
-    res.statusCode = 204;
-    
-    res.end(postCharacter());
+    res.statusCode = 200;
+    postCharacter();
+    res.end();
   }
   else if(pathname.includes('/characters/')) {
     const id = pathname.slice(1).split('/')[1];

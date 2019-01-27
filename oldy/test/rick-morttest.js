@@ -8,7 +8,6 @@ describe('rick-mort', () => {
     return request
       .get('http://localhost:7890/characters/1')
       .then(res => {
-        console.log('res', res.text);
         expect(res.text).toEqual(`
       <html>
         <body>
