@@ -1,5 +1,5 @@
 const http = require('http');
-const app = require('./lib/rick-mort');
+const app = require('./lib/app');
 const PORT = 7890;
 
 http.createServer(app)
