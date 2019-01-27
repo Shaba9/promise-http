@@ -14,4 +14,12 @@ describe('rick and morty api tests', () => {
       .send({ characterId: 1, note: 'Great character' })
       .then(res => expect(res.status).toEqual(204));
   });
+
+  it('gets notes for a character', () => {
+    return request(app)
+      .post('/characters')
+      .send({ characterId: 1, note: 'Great character' })
+      .then(() => request(app).get('/characters/1'))
+      .then(res => expect(res.text).toContain('Great character'));
+  });
 });
